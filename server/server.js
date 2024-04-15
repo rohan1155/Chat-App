@@ -31,7 +31,7 @@ const { Server } = require("socket.io");
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "https://chat-app-s.vercel.app",
+    origin: "http://localhost:5173/home",
     methods: ["GET", "POST"],
   },
 });
