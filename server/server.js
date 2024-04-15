@@ -13,6 +13,10 @@ app.use(cors());
 app.use("/user", userRoute);
 app.use("/messages", authMiddleware, messageRoute);
 
+app.get("/", (req, res) => {
+  res.send("hello");
+});
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
