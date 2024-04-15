@@ -31,7 +31,9 @@ export default function Chat() {
   }, [navigate]);
 
   useEffect(() => {
-    const socket = io("https://chat-app-server-beryl-sigma.vercel.app");
+    const socket = io(
+      "https://chat-app-server-kgm4755l5-rohan1155s-projects.vercel.app"
+    );
     setSocket(socket);
     return () => {
       socket.disconnect();
