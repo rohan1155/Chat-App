@@ -31,7 +31,7 @@ const { Server } = require("socket.io");
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173/home",
+    origin: "*",
     methods: ["GET", "POST"],
   },
 });
