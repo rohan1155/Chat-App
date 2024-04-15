@@ -56,24 +56,26 @@ export default function Account() {
 
   return (
     <div className="account">
-      <p className="account-name">Name - {userData.name}</p>
-      <p className="account-username">Username - {userData.username}</p>
-      <Button
-        variant="outlined"
-        color="error"
-        onClick={() => setOpenDialog(true)}
-      >
-        Delete Account
-      </Button>
-      <ConfirmDialog
-        open={openDialog}
-        onClose={() => setOpenDialog(false)}
-        onConfirm={handleDeleteAccount}
-        title="Confirm Deletion"
-      >
-        Are you sure you want to delete your account? This action cannot be
-        undone.
-      </ConfirmDialog>
+      <div className="account-container">
+        <p className="account-name">Name - {userData.name}</p>
+        <p className="account-username">Username - {userData.username}</p>
+        <Button
+          variant="outlined"
+          color="error"
+          onClick={() => setOpenDialog(true)}
+        >
+          Delete Account
+        </Button>
+        <ConfirmDialog
+          open={openDialog}
+          onClose={() => setOpenDialog(false)}
+          onConfirm={handleDeleteAccount}
+          title="Confirm Delete Account"
+        >
+          Are you sure you want to delete your account? This action cannot be
+          undone.
+        </ConfirmDialog>
+      </div>
     </div>
   );
 }

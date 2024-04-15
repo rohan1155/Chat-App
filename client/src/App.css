@@ -276,9 +276,26 @@
   gap: 15px;
 }
 
+.account-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 45px 60px;
+  border: 1px solid #7a7a7a;
+  border-radius: 20px;
+}
+
 .account-name {
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+}
+
+.account-username {
+  margin-bottom: 8px;
+  font-size: 17px;
 }
 
 .mobile-conversations {
