@@ -91,8 +91,8 @@ export default function Chat() {
         },
       });
       if (response) {
-        navigate("/home");
         await useSocket.emit("chatDeleted");
+        navigate("/home");
       }
     } catch (error) {
       console.log(error.response.data.message);

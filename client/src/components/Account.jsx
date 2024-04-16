@@ -34,7 +34,7 @@ export default function Account() {
       }
     };
     fetchCurrentUser();
-  }, []);
+  }, [token]);
 
   if (!authenticated) {
     return null;

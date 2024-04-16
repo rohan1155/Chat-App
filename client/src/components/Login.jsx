@@ -26,7 +26,7 @@ export default function Register() {
     e.preventDefault();
     try {
       const response = await axios.post("/user/login", data);
-      console.log(response);
+      // console.log(response);
       localStorage.setItem("token", response.data.token);
       navigate("/home");
     } catch (err) {
