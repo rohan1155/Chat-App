@@ -1,7 +1,7 @@
 import { TextField, Button, ThemeProvider, createTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../src/axios";
+import axios from "../axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -9,7 +9,7 @@ export default function Register() {
   const navigate = useNavigate();
   const muiTheme = createTheme({ palette: { mode: "dark" } });
 
-  const [data, setData] = useState({ name: "", username: "", password: "" });
+  const [data, setData] = useState({ username: "", password: "" });
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -23,9 +23,9 @@ export default function Register() {
   };
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
-      const response = await axios.post("/user/register", data);
+      const response = await axios.post("/user/login", data);
       // console.log(response);
       localStorage.setItem("token", response.data.token);
       navigate("/home");
@@ -43,20 +43,10 @@ export default function Register() {
   };
   return (
     <div className="login">
-      <img src="../public/images/logo.svg" alt="" className="login-logo" />
+      <img src="../logo.svg" alt="" className="login-logo" />
       <ThemeProvider theme={muiTheme}>
         <div className="login-container">
-          <h1 className="login-text">Create an Account</h1>
-          <TextField
-            label="Name"
-            variant="outlined"
-            name="name"
-            autoComplete="off"
-            value={data.name}
-            onChange={handleChange}
-            onKeyDown={handleKeyDown}
-            className="login-text-field"
-          />
+          <h1 className="login-text">Login to your Account</h1>
           <TextField
             label="Username"
             variant="outlined"
@@ -80,19 +70,19 @@ export default function Register() {
           <Button
             variant="outlined"
             onClick={handleSubmit}
-            sx={{ width: "100px" }}
+            sx={{ width: "90px" }}
           >
-            Sign Up
+            Login
           </Button>
           <div>
-            <span>Already have an Account? </span>
+            <span>Dont have an Account? </span>
             <span
               style={{ textDecoration: "underline", cursor: "pointer" }}
               onClick={() => {
-                navigate("/login");
+                navigate("/register");
               }}
             >
-              Login
+              SignUp
             </span>
           </div>
         </div>

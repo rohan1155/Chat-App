@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "../src/axios";
+import axios from "../axios";
 import { useParams } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import io from "socket.io-client";

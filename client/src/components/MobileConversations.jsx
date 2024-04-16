@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../src/axios";
+import axios from "../axios";
 import { format, parseISO } from "date-fns";
 import io from "socket.io-client";
 import { useMediaQuery } from "@mui/material";

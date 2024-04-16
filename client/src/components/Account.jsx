@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "../src/axios";
+import axios from "../axios";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ConfirmDialog from "./ConfirmDialog";

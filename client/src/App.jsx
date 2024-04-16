@@ -1,13 +1,13 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import Register from "../components/Register";
-import Login from "../components/Login";
-import Home from "../components/Home";
-import Chat from "../components/Chat";
-import Welcome from "../components/Welcome";
-import Account from "../components/Account";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import Home from "./components/Home";
+import Chat from "./components/Chat";
+import Welcome from "./components/Welcome";
+import Account from "./components/Account";
 import { useMediaQuery } from "@mui/material";
-import MobileConversations from "../components/MobileConversations";
+import MobileConversations from "./components/MobileConversations";
 
 export default function App() {
   const isMobile = useMediaQuery("(max-width:1000px)");
