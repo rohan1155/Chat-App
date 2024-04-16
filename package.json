@@ -4,11 +4,11 @@
   "description": "��#\u0000 \u0000C\u0000h\u0000a\u0000t\u0000-\u0000A\u0000p\u0000p\u0000\r\u0000 \u0000",
   "main": "index.js",
   "scripts": {
-    "install-root": "npm install",
+    "install-server": "npm install --prefix server",
     "install-client": "npm install --prefix client",
     "build-client": "npm run build --prefix client",
-    "build": "npm run install-root && npm run install-client && npm run build-client",
-    "start": "node backend/server.js"
+    "build": "npm run install-server && npm run install-client && npm run build-client",
+    "start": "node server/server.js"
   },
   "author": "",
   "license": "ISC"
