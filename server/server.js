@@ -13,6 +13,7 @@ app.use(cors());
 app.use("/user", userRoute);
 app.use("/messages", authMiddleware, messageRoute);
 
+app.use(express.static(path.join(__dirname, "../client/dist")));
 app.get("/", (req, res) => {
   res.send("hello");
 });
