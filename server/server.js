@@ -5,6 +5,7 @@ require("dotenv").config();
 const userRoute = require("./routes/User");
 const messageRoute = require("./routes/Message");
 const authMiddleware = require("./middleware/Auth");
+const path = require("path");
 const app = express();
 
 app.use(express.json());
