@@ -5,14 +5,19 @@ require("dotenv").config();
 const userRoute = require("./routes/User");
 const messageRoute = require("./routes/Message");
 const authMiddleware = require("./middleware/Auth");
-const path = require("path");
 const app = express();
+const path = require("path");
 
 app.use(express.json());
 app.use(cors());
 
 app.use("/user", userRoute);
 app.use("/messages", authMiddleware, messageRoute);
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
 
 // DEPLOYMENT
 const __dirname1 = path.resolve(path.join(__dirname, ".."));
@@ -27,11 +32,6 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 //
-
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
 
 const PORT = process.env.PORT;
 
