@@ -14,11 +14,6 @@ app.use(cors());
 app.use("/user", userRoute);
 app.use("/messages", authMiddleware, messageRoute);
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
-  .catch((err) => console.log(err));
-
 // DEPLOYMENT
 const __dirname1 = path.resolve(path.join(__dirname, ".."));
 if (process.env.NODE_ENV === "production") {
@@ -32,6 +27,11 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 //
+
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.log(err));
 
 const PORT = process.env.PORT;
 
