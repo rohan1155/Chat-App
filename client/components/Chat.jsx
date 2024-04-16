@@ -31,7 +31,7 @@ export default function Chat() {
   }, [navigate]);
 
   useEffect(() => {
-    const socket = io("https://chat-app-36pq.onrender.com");
+    const socket = io("http://localhost:5000");
     setSocket(socket);
     return () => {
       socket.disconnect();

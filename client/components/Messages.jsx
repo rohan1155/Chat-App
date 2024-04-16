@@ -11,7 +11,7 @@ export default function Messages() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const socket = io("https://chat-app-36pq.onrender.com");
+    const socket = io("http://localhost:5000");
     socket.on("newMessage", (data) => {
       const receivedData = {
         receiver: data.receiverId,

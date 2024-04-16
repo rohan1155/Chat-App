@@ -14,7 +14,7 @@ export default function ConversationItem() {
   const isMobile = useMediaQuery("(max-width:1000px)");
 
   useEffect(() => {
-    const socket = io("https://chat-app-36pq.onrender.com");
+    const socket = io("http://localhost:5000");
     socket.on("messageSent", () => {
       fetchUsers();
     });
