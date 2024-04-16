@@ -43,7 +43,7 @@ export default function Register() {
   };
   return (
     <div className="login">
-      <img src="../images/logo.svg" alt="" className="login-logo" />
+      <img src="../public/images/logo.svg" alt="" className="login-logo" />
       <ThemeProvider theme={muiTheme}>
         <div className="login-container">
           <h1 className="login-text">Login to your Account</h1>
