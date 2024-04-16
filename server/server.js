@@ -5,8 +5,10 @@ require("dotenv").config();
 const userRoute = require("./routes/User");
 const messageRoute = require("./routes/Message");
 const authMiddleware = require("./middleware/Auth");
-const path = require("path");
 const app = express();
+
+const path = require("path");
+app.use(express.static(path.join(__dirname, "../client/dist")));
 
 app.use(express.json());
 app.use(cors());
@@ -14,10 +16,9 @@ app.use(cors());
 app.use("/user", userRoute);
 app.use("/messages", authMiddleware, messageRoute);
 
-app.use(express.static(path.join(__dirname, "../client/dist")));
-app.get("/", (req, res) => {
-  res.send("hello");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello");
+// });
 
 mongoose
   .connect(process.env.MONGO_URI)
