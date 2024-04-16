@@ -14,7 +14,7 @@ export default function MobileConversations() {
   const isMobile = useMediaQuery("(max-width:1000px)");
 
   useEffect(() => {
-    const socket = io("http://localhost:5000");
+    const socket = io("https://chat-app-f747.onrender.com");
     socket.on("messageSent", () => {
       fetchUsers();
     });
