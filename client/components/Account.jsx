@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "../axios";
+import axios from "../src/axios";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import ConfirmDialog from "./ConfirmDialog";
@@ -34,7 +34,7 @@ export default function Account() {
       }
     };
     fetchCurrentUser();
-  }, [token]);
+  }, []);
 
   if (!authenticated) {
     return null;

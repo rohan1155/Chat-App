@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../axios";
+import axios from "../src/axios";
 import { format, parseISO } from "date-fns";
 import io from "socket.io-client";
 import { useMediaQuery } from "@mui/material";
 
-export default function ConversationItem() {
+export default function MobileConversations() {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [lastMessages, setLastMessages] = useState({});
@@ -14,7 +14,7 @@ export default function ConversationItem() {
   const isMobile = useMediaQuery("(max-width:1000px)");
 
   useEffect(() => {
-    const socket = io("https://chat-app-f747.onrender.com");
+    const socket = io("http://localhost:5000");
     socket.on("messageSent", () => {
       fetchUsers();
     });
@@ -94,12 +94,12 @@ export default function ConversationItem() {
     return parseISO(lastMessageB.timestamp) - parseISO(lastMessageA.timestamp);
   });
 
-  if (isMobile) {
+  if (!isMobile) {
     return null;
   }
 
   return (
-    <div>
+    <div className="mobile-conversations">
       {sortedUsersWithChats.length > 0 && (
         <div>
           <p className="conversation-divider">Chats</p>

@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useEffect, useState } from "react";
-import axios from "../axios";
+import axios from "../src/axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import io from "socket.io-client";
@@ -31,7 +31,7 @@ export default function Chat() {
   }, [navigate]);
 
   useEffect(() => {
-    const socket = io("https://chat-app-f747.onrender.com");
+    const socket = io("http://localhost:5000");
     setSocket(socket);
     return () => {
       socket.disconnect();
@@ -91,8 +91,8 @@ export default function Chat() {
         },
       });
       if (response) {
-        await useSocket.emit("chatDeleted");
         navigate("/home");
+        await useSocket.emit("chatDeleted");
       }
     } catch (error) {
       console.log(error.response.data.message);

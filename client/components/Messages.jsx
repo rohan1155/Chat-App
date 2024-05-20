@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import axios from "../axios";
+import axios from "../src/axios";
 import { useParams } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import io from "socket.io-client";
@@ -11,7 +11,7 @@ export default function Messages() {
   const token = localStorage.getItem("token");
 
   useEffect(() => {
-    const socket = io("https://chat-app-f747.onrender.com");
+    const socket = io("http://localhost:5000");
     socket.on("newMessage", (data) => {
       const receivedData = {
         receiver: data.receiverId,

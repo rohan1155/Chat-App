@@ -1,7 +1,7 @@
 import { TextField, Button, ThemeProvider, createTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../axios";
+import axios from "../src/axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -43,7 +43,7 @@ export default function Register() {
   };
   return (
     <div className="login">
-      <img src="../logo.svg" alt="" className="login-logo" />
+      <img src="../images/logo.svg" alt="" className="login-logo" />
       <ThemeProvider theme={muiTheme}>
         <div className="login-container">
           <h1 className="login-text">Login to your Account</h1>

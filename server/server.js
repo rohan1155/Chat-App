@@ -6,27 +6,12 @@ const userRoute = require("./routes/User");
 const messageRoute = require("./routes/Message");
 const authMiddleware = require("./middleware/Auth");
 const app = express();
-const path = require("path");
 
 app.use(express.json());
 app.use(cors());
 
 app.use("/user", userRoute);
 app.use("/messages", authMiddleware, messageRoute);
-
-// DEPLOYMENT
-const __dirname1 = path.resolve(path.join(__dirname, ".."));
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(__dirname1 + "/client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname1, "client", "build", "index.html"));
-  });
-} else {
-  app.get("/", (req, res) => {
-    res.send("API Running");
-  });
-}
-//
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -42,7 +27,8 @@ const { Server } = require("socket.io");
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "*",
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
   },
 });
 
