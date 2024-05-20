@@ -31,9 +31,7 @@ export default function Chat() {
   }, [navigate]);
 
   useEffect(() => {
-    const socket = io(
-      "https://chat-app-server-rohan1155s-projects.vercel.app/"
-    );
+    const socket = io("http://localhost:5000");
     setSocket(socket);
     return () => {
       socket.disconnect();
