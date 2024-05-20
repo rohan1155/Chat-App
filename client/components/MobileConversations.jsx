@@ -14,7 +14,9 @@ export default function MobileConversations() {
   const isMobile = useMediaQuery("(max-width:1000px)");
 
   useEffect(() => {
-    const socket = io("http://localhost:5000");
+    const socket = io(
+      "https://chat-app-server-rohan1155s-projects.vercel.app/"
+    );
     socket.on("messageSent", () => {
       fetchUsers();
     });
