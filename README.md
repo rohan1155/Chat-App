@@ -37,7 +37,7 @@ Follow these steps to get the project up and running on your local machine.
 1. Navigate to the `client` directory:
 
    ```sh
-   cd ../client
+   cd client
    ```
 
 2. Install the necessary dependencies:
